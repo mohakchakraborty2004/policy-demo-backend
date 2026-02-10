@@ -14,7 +14,11 @@ connectDB();
 
 // 2. Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow ALL origins (easiest for debugging)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Allow these headers
+}));
 
 // 3. Routes
 
